@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
 import requests
 import re
-import os
+import os, sys
 
 client_id = os.getenv('PAPAGO_CLIENT_ID', None)
+if client_id is None:
+    print('Specify PAPAGO_CLIENT_ID as environment variable.')
+    sys.exit(1)
+
 client_secret = os.getenv('PAPAGO_CLIENT_SECRET', None)
+if client_secret is None:
+    print('Specify PAPAGO_CLIENT_SECRET as environment variable.')
+    sys.exit(1)
 
 url = "https://openapi.naver.com/v1/language/translate"
 
