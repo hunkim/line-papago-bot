@@ -48,16 +48,6 @@ if channel_access_token is None:
 line_bot_api = LineBotApi(channel_access_token)
 parser = WebhookParser(channel_secret)
 
-
-@app.route('/message', methods=['POST'])
-def message():
-    return jsonify({"message": {"text": 'Hello'}})
-
-@app.route('/keyboard')
-def keyboard():
-    return jsonify({'type': 'buttons', 'buttons': ['1', '2', '3']})
-
-
 @app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
@@ -87,6 +77,16 @@ def callback():
         )
 
     return 'OK'
+
+# For Kakao
+@app.route('/message', methods=['POST'])
+def message():
+    data = request.json
+    return jsonify({"message": {"text": data}})
+
+@app.route('/keyboard')
+def keyboard():
+    return jsonify({'type': 'buttons', 'buttons': ['1', '2', '3']})
 
 
 if __name__ == "__main__":
