@@ -1,2 +1,7 @@
 # line-papago-bot
-# line-papago-bot
+
+
+## Heroku
+click the button below:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
