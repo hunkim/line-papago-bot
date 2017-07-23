@@ -1,7 +1,7 @@
 {
   "name": "line-papago-bot",
   "description": "Line Papago Bot for automatic translation.",
-  "repository": "https://github.com/hunkims/line-papago-bot",
+  "repository": "https://github.com/hunkim/line-papago-bot",
   "logo": "https://avatars0.githubusercontent.com/u/15710697",
   "keywords": ["python", "line", "papago", "translation"],
   "env": {
