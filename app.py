@@ -18,6 +18,8 @@ import os
 import sys
 from argparse import ArgumentParser
 
+from flask import jsonify
+
 from flask import Flask, request, abort
 from linebot import (
     LineBotApi, WebhookParser
@@ -49,11 +51,11 @@ parser = WebhookParser(channel_secret)
 
 @app.route('/message', methods=['POST'])
 def message():
-    return {"message": {"text": 'Hello'}}
+    return jsonify({"message": {"text": 'Hello'}})
 
 @app.route('/keyboard')
 def keyboard():
-    return {'type': 'buttons', 'buttons': ['1', '2', '3']}
+    return jsonify({'type': 'buttons', 'buttons': ['1', '2', '3']})
 
 
 @app.route("/callback", methods=['POST'])
