@@ -47,17 +47,9 @@ line_bot_api = LineBotApi(channel_access_token)
 parser = WebhookParser(channel_secret)
 
 
-@app.route('/')
-def index():
-    return {'hello': 'world'}
-
-@app.route('/message')
+@app.route('/message', methods=['POST'])
 def message():
-    request = app.current_request
-    body = request.raw_body.decode('utf-8')
-    print('body: ', body)
-
-    return {"message": {"text": body}}
+    return {"message": {"text": 'Hello'}}
 
 @app.route('/keyboard')
 def keyboard():
