@@ -87,7 +87,7 @@ def message():
 
 @app.route('/keyboard')
 def keyboard():
-    return jsonify({'type': 'buttons', 'buttons': ['1', '2', '3']})
+    return jsonify({'type': 'text'})
 
 
 if __name__ == "__main__":
