@@ -82,7 +82,8 @@ def callback():
 @app.route('/message', methods=['POST'])
 def message():
     data = request.json
-    return jsonify({"message": {"text": data['content']}})
+    app.logger.info(data)
+    return jsonify({"message": {"text": 'Cool!'}})
 
 @app.route('/keyboard')
 def keyboard():
