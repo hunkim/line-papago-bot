@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import requests
 import re
-import os, sys
+import os
+import sys
 
 client_id = os.getenv('PAPAGO_CLIENT_ID', None)
 if client_id is None:
@@ -19,16 +20,20 @@ headers = {'X-Naver-Client-Id': client_id,
            'X-Naver-Client-Secret': client_secret}
 
 # http://jokergt.tistory.com/52
+
+
 def isKorean(text):
     hangul = re.compile('[\u3131-\u3163\uac00-\ud7a3]+')  # 위와 동일
     result = hangul.findall(text)
     return len(result)
+
 
 def translate(text):
     if isKorean(text):
         return _translate(text, 'ko', 'en')
     else:
         return _translate(text, 'en', 'ko')
+
 
 def _translate(text, source='en', target='ko'):
     # text = '안녕하세요. 파파고 입니다.'
