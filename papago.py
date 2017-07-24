@@ -20,16 +20,16 @@ headers = {'X-Naver-Client-Id': client_id,
            'X-Naver-Client-Secret': client_secret}
 
 # http://jokergt.tistory.com/52
+hangul_re = re.compile('[\u3131-\u3163\uac00-\ud7a3]+')  # 위와 동일
 
 
-def isKorean(text):
-    hangul = re.compile('[\u3131-\u3163\uac00-\ud7a3]+')  # 위와 동일
-    result = hangul.findall(text)
-    return len(result)
+# https://www.facebook.com/groups/pythonkorea/permalink/1427836417299515/
+def is_hangul(text):
+    return hangul_re.search(text) is not None
 
 
 def translate(text):
-    if isKorean(text):
+    if is_hangul(text):
         return _translate(text, 'ko', 'en')
     else:
         return _translate(text, 'en', 'ko')
