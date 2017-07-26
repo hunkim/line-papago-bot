@@ -14,7 +14,7 @@ if client_secret is None:
     print('Specify PAPAGO_CLIENT_SECRET as environment variable.')
     sys.exit(1)
 
-url = "https://openapi.naver.com/v1/language/translate"
+url = "https://openapi.naver.com/v1/papago/n2mt"
 
 headers = {'X-Naver-Client-Id': client_id,
            'X-Naver-Client-Secret': client_secret}
